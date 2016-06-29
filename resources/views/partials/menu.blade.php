@@ -1,7 +1,9 @@
 <ul class="nav navbar-nav">
-    @foreach ($items as $route => $text)
-    <li role="presentation" {!! Html::classes(['active' => Route::is($route)]) !!}>
-        <a href="{{ route($route) }}">{{ $text }}</a>
+    
+    <li role="presentation" >
+        <a href="{{route('tickets.create')}}">Inicio</a>
+		
+		
     </li>
-    @endforeach
+   
 </ul>

@@ -2911,19 +2911,19 @@ select[multiple].input-lg,
 
 .btn-primary {
   color: white;
-  background-color: #3fb5d8;
-  border-color: #2badd4; }
+  background-color: #ce4529;
+  border-color: #fd3006; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
     color: white;
-    background-color: #269cbf;
-    border-color: #2083a1; }
+    background-color: #ce4529;
+    border-color: #CE2604; }
   .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
     background-image: none; }
   .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
-    background-color: #3fb5d8;
-    border-color: #2badd4; }
+    background-color: #ce4529;
+    border-color: #fd3006; }
   .btn-primary .badge {
-    color: #3fb5d8;
+    color: #ce4529;
     background-color: white; }
 
 .btn-success {
@@ -3103,7 +3103,7 @@ tbody.collapse.in {
   font-size: 14px;
   text-align: left;
   background-color: white;
-  border: 1px solid #cccccc;
+  border: 1px solid #f3713b;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -3116,14 +3116,14 @@ tbody.collapse.in {
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
-    background-color: #e5e5e5; }
+    background-color: #f3713b; }
   .dropdown-menu > li > a {
     display: block;
     padding: 3px 20px;
     clear: both;
     font-weight: normal;
     line-height: 1.42857;
-    color: #333333;
+    color: #f3713b;
     white-space: nowrap; }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {

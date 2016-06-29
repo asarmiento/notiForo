@@ -18,7 +18,7 @@
                 </p>
 
                 @foreach($tickets as $ticket)
-                    @include('tickets/partials/item', compact('ticket'))
+                    <a href="{{$ticket->id}}">@include('tickets/partials/item', compact('ticket'))</a>
                 @endforeach
 
                 {!! $tickets->render() !!}
