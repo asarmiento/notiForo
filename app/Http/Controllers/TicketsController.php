@@ -54,16 +54,29 @@ class TicketsController extends Controller {
 
     public function store(Request $request)
     {
+       
         $this->validate($request, [
-            'title' => 'required|max:120',
+            'title' => 'required|max:120|uniques:tikects',
             'link'  => 'url',
         ]);
+        //obtenemos el campo file definido en el formulario
+        $file = $request->file('file');
+
+        //obtenemos el nombre del archivo
+        $nombre = currentUser()->id.'-'.$request->get('title').$file->getClientOriginalExtension();
+
 
         $ticket = $this->ticketRepository->openNew(
             currentUser(),
             $request->get('title'),
-            $request->get('link')
+            $request->get('link'),
+            $nombre
+
         );
+        
+
+        //indicamos que queremos guardar un nuevo archivo en el disco local
+        \Storage::disk('local')->put($nombre,  \File::get($file));
 
         return Redirect::route('tickets.details', $ticket->id);
     }
