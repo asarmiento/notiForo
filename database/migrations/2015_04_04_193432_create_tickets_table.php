@@ -15,6 +15,7 @@ class CreateTicketsTable extends Migration
 
             $table->string('title', 200)->unique();
             $table->text('notice');
+            $table->enum('status',['open','closed']);
             $table->string('name_image');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
