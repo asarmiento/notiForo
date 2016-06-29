@@ -56,7 +56,7 @@ class TicketsController extends Controller {
     {
        
         $this->validate($request, [
-            'title' => 'required|max:120|uniques:tikects',
+            'title' => 'required|max:120|unique:tikects',
             'link'  => 'url',
         ]);
         //obtenemos el campo file definido en el formulario
