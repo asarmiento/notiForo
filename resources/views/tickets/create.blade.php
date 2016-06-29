@@ -6,7 +6,8 @@
             <div class="col-md-8 col-md-offset-2">
                 <h2>Nueva solicitud</h2>
                 @include('partials/errors')
-                {!! Form::open(['route' => 'tickets.store', 'method' => 'POST']) !!}
+                {!! Form::open(['route' => 'tickets.store', 'method' => 'POST','accept-charset'=>"UTF-8",
+                'enctype'=>"multipart/form-data"]) !!}
                     <div class="form-group">
                         {!! Form::label('title', 'Título') !!}
                         {!!
@@ -22,6 +23,12 @@
                                 'placeholder' => 'Comparte un tutorial o recurso colocando una URL (opcional)'
                             ])
                         !!}
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Nuevo Archivo</label>
+                            <div class="col-md-6">
+                                <input type="file" class="form-control" name="file" >
+                            </div>
+                        </div>
                     </div>
                     <p>
                         <button type="submit" class="btn-primary">
