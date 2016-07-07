@@ -63,10 +63,10 @@
                         <label for="comment">Comentarios:</label>
                         <textarea rows="4" class="form-control" name="comment" cols="50" id="comment">{{ old('comment') }}</textarea>
                     </div>
-                    <div class="form-group">
+                    <!--div class="form-group">
                         <label for="link">Enlace:</label>
                         <input class="form-control" name="link" type="text" id="link" value="{{ old('link') }}">
-                    </div>
+                    </div-->
                     <button type="submit" class="btn btn-primary">Enviar comentario</button>
                 </form>
 

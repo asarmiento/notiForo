@@ -51,32 +51,47 @@ class TicketsController extends Controller {
     {
         return view('tickets.create');
     }
+    /**************************************************
+    * @Author: Anwar Sarmiento Ramos
+    * @Email: asarmiento@sistemasamigables.com
+    * @Create: 06/07/16 11:22 PM   @Update 0000-00-00
+    ***************************************************
+    * @Description: Mostraremos la noticia completa en
+    * esta vista.
+    *
+    *
+    * @Pasos:
+    *
+    *
+    * @return view
+    ***************************************************/
+    public function noticia($id){
 
+        $notice = $this->ticketRepository->getModel()->where('id',$id)->get();
+        return view('tickets.complete',compact('notice'));
+    }
     public function store(Request $request)
     {
        
         $this->validate($request, [
             'title' => 'required|max:120',
-            'link'  => 'url',
+            'content'  => 'required',
         ]);
         //obtenemos el campo file definido en el formulario
         $file = $request->file('file');
 
         //obtenemos el nombre del archivo
-        $nombre = currentUser()->id.'-'.$request->get('title').$file->getClientOriginalExtension();
-
-
+        $name = currentUser()->id.'-notice.'.$file->getClientOriginalExtension();
         $ticket = $this->ticketRepository->openNew(
             currentUser(),
             $request->get('title'),
-            $request->get('link'),
-            $nombre
+            $request->get('content'),
+            $name
 
         );
-        
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
-        \Storage::disk('local')->put($nombre,  \File::get($file));
+        \Storage::disk('local')->put($name,  \File::get($file));
 
         return Redirect::route('tickets.details', $ticket->id);
     }
