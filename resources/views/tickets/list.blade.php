@@ -7,9 +7,9 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
                 <h1>
-                    {{ $title }}
+                    Nueva información 
                     <a href="{{ route('tickets.create') }}" class="btn btn-primary">
-                        Nueva solicitud
+                        Crear
                     </a>
                 </h1>
 

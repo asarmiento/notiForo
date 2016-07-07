@@ -9,12 +9,10 @@
                     {{ $ticket->title }}
                     @include('tickets/partials/status', compact('ticket'))
                 </h2>
-
-                @if($ticket->link)
+                @if($ticket->notice)
                     <p>
-                        <a href="{{ $ticket->link }}" target="_blank" rel="nofollow" class="btn btn-info">
-                            Ver recurso
-                        </a>
+                       <img src="<?php echo "/storage/images/".$ticket->name_image ?>" height="242" width="242"> 
+					   {{$ticket->notice}}
                     </p>
                 @endif
 
@@ -53,24 +51,26 @@
                     @endif
                 @endif
 
-                <h3>Nuevo Comentario</h3>
+                <h3>Nueva información</h3>
 
                 @include('partials/errors')
 
                 <form action="{{ route('comments.submit', $ticket->id) }}" method="POST" accept-charset="UTF-8">
                     {!! csrf_field() !!}
                     <div class="form-group">
-                        <label for="comment">Comentarios:</label>
+                        <label for="comment">Nuevo suceso:</label>
                         <textarea rows="4" class="form-control" name="comment" cols="50" id="comment">{{ old('comment') }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="link">Enlace:</label>
-                        <input class="form-control" name="link" type="text" id="link" value="{{ old('link') }}">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar comentario</button>
-                </form>
+                            <label class="col-md-4 control-label">Adjuntar imagen</label>
+                            <div class="col-md-6">
+                                <input type="file" class="form-control" name="file" >
+                            </div>
+                        </div>
+                    <button type="submit" class="btn btn-primary">Enviar </button>
+                </form> 
 
-                <h3>Comentarios ({{ count($ticket->comments) }})</h3>
+                <h3>Nuevos sucesos ({{ count($ticket->comments) }})</h3>
 
                 @foreach ($ticket->comments as $comment)
                     <div class="well well-sm">
@@ -90,10 +90,14 @@
                                 {!! Form::close() !!}
                             @endcan
                         @endif
+						 <img src="<?php echo "/storage/images/".$ticket->name_image ?>" height="242" width="242">
+						
                         <p class="date-t">
                             <span class="glyphicon glyphicon-time"></span>
                             {{ $comment->created_at->format('d/m/Y h:ia') }}
                         </p>
+						
+						
                     </div>
                 @endforeach
             </div>

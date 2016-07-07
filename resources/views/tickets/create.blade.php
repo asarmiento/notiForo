@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h2>Nueva solicitud</h2>
+                <h2>Nueva Información</h2>
                 @include('partials/errors')
                 {!! Form::open(['route' => 'tickets.store', 'method' => 'POST','accept-charset'=>"UTF-8",
                 'enctype'=>"multipart/form-data"]) !!}
@@ -14,27 +14,29 @@
                             Form::textarea('title', null, [
                                 'rows'  => 2,
                                 'class' => 'form-control',
-                                'placeholder' => 'Describe brevemente de qué quieres que se trata el tutorial'
+                                'placeholder' => 'El titulo de la información'
                             ])
                         !!}
-                        {!! Form::label('link', 'Enlace') !!}
-                        {!! Form::text('link', null, [
-                                'class' => 'form-control',
-                                'placeholder' => 'Comparte un tutorial o recurso colocando una URL (opcional)'
-                            ])
+                        {!! Form::label('contentNotice', 'Contenido') !!}
+                        {!! Form::textarea('contentNotice', null, [
+						'size' => '90x8', 'class' => 'form-control', 
+						'placeholder' => 'Describción de la información detalla'])					
                         !!}
+						<p>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Nuevo Archivo</label>
+                            <label class="col-md-4 control-label">Adjuntar imagen</label>
                             <div class="col-md-6">
                                 <input type="file" class="form-control" name="file" >
                             </div>
                         </div>
                     </div>
-                    <p>
-                        <button type="submit" class="btn-primary">
-                            Enviar solicitud
+					
+                    <p>				
+                       <button type="submit" class="btn-primary">
+                            Enviar 
                         </button>
                     </p>
+				
                 {!! Form::close() !!}
             </div>
         </div>
