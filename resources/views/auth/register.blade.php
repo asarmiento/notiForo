@@ -6,8 +6,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
 				@if (Auth::guest())
-					<div class="panel-heading">No tiene Autorización</div>
-				@else
+					
 				<div class="panel-heading">Register</div>
 				<div class="panel-body">
                     @include('partials/errors')

@@ -5,11 +5,7 @@ namespace TeachMe\Entities;
 class Ticket extends Entity
 {
 
-<<<<<<< HEAD
-    protected $fillable = ['title', 'notice', 'status','name_image'];
-=======
     protected $fillable = ['title', 'content', 'status','name_image'];
->>>>>>> ba63f50d4b95bb44939eadbd225b0db77041791b
 
     public function author()
     {

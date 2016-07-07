@@ -4,11 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-<<<<<<< HEAD
+
                 <h2>Nueva Información</h2>
 =======
                 <h2>Nueva Noticia</h2>
->>>>>>> ba63f50d4b95bb44939eadbd225b0db77041791b
+
                 @include('partials/errors')
                 {!! Form::open(['route' => 'tickets.store', 'method' => 'POST','accept-charset'=>"UTF-8",
                 'enctype'=>"multipart/form-data"]) !!}
@@ -21,7 +21,7 @@
                                 'placeholder' => 'El titulo de la información'
                             ])
                         !!}
-<<<<<<< HEAD
+
                         {!! Form::label('contentNotice', 'Contenido') !!}
                         {!! Form::textarea('contentNotice', null, [
 						'size' => '90x8', 'class' => 'form-control', 
@@ -34,7 +34,7 @@
                                 <input type="file" class="form-control" name="file" >
                             </div>
                         </div>
-=======
+
                         {!! Form::label('content', 'Contenido') !!}
                         {!! Form::textarea('content', null, [
                                 'rows'  => 15,
@@ -50,7 +50,7 @@
                         !!}
 
 
->>>>>>> ba63f50d4b95bb44939eadbd225b0db77041791b
+
                     </div>
 					
                     <p>				

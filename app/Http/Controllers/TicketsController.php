@@ -82,23 +82,14 @@ class TicketsController extends Controller {
 $countNotice = $this->ticketRepository->getModel()->count();
 
         //obtenemos el nombre del archivo
-<<<<<<< HEAD
-        $nombre = currentUser()->id.'-'.'noticia-'.($countNotice+1).'.'.$file->getClientOriginalExtension();
 
-//echo json_encode($nombre); die;
-        $ticket = $this->ticketRepository->openNew(
-            currentUser(),
-            $request->get('title'),
-            $request->get('contentNotice'),
-            $nombre
-=======
-        $name = currentUser()->id.'-notice.'.$file->getClientOriginalExtension();
+        $name = currentUser()->id.'-notice'.($countNotice+1).'.'.$file->getClientOriginalExtension();
         $ticket = $this->ticketRepository->openNew(
             currentUser(),
             $request->get('title'),
             $request->get('content'),
             $name
->>>>>>> ba63f50d4b95bb44939eadbd225b0db77041791b
+
 
         );
 

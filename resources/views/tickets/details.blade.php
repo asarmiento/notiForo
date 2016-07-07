@@ -61,23 +61,15 @@
                         <label for="comment">Nuevo suceso:</label>
                         <textarea rows="4" class="form-control" name="comment" cols="50" id="comment">{{ old('comment') }}</textarea>
                     </div>
-<<<<<<< HEAD
-                    <div class="form-group">
-                            <label class="col-md-4 control-label">Adjuntar imagen</label>
-                            <div class="col-md-6">
-                                <input type="file" class="form-control" name="file" >
-                            </div>
-                        </div>
-                    <button type="submit" class="btn btn-primary">Enviar </button>
-                </form> 
-=======
-                    <!--div class="form-group">
+
+
+                    <!--div class="forom-groupom-group">
                         <label for="link">Enlace:</label>
                         <input class="form-control" name="link" type="text" id="link" value="{{ old('link') }}">
                     </div-->
                     <button type="submit" class="btn btn-primary">Enviar comentario</button>
                 </form>
->>>>>>> ba63f50d4b95bb44939eadbd225b0db77041791b
+
 
                 <h3>Nuevos sucesos ({{ count($ticket->comments) }})</h3>
 
