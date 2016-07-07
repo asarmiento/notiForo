@@ -61,12 +61,22 @@ class TicketRepository extends BaseRepository {
             ->paginate(20);
     }
 
+<<<<<<< HEAD
     public function openNew($user, $title, $notice, $image)
     {
         return $user->tickets()->create([
             'title'  => $title,
             'notice'   => $notice,
             'name_image'   => $image
+=======
+    public function openNew($user, $title, $link ,$image)
+    {
+        return $user->tickets()->create([
+            'title'  => $title,
+            'content'   => $link,
+            'name_image'   => $image,
+            'status' => empty($link) ? 'open' : 'closed'
+>>>>>>> ba63f50d4b95bb44939eadbd225b0db77041791b
         ]);
 	
     }

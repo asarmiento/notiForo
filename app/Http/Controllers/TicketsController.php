@@ -51,19 +51,38 @@ class TicketsController extends Controller {
     {
         return view('tickets.create');
     }
+    /**************************************************
+    * @Author: Anwar Sarmiento Ramos
+    * @Email: asarmiento@sistemasamigables.com
+    * @Create: 06/07/16 11:22 PM   @Update 0000-00-00
+    ***************************************************
+    * @Description: Mostraremos la noticia completa en
+    * esta vista.
+    *
+    *
+    * @Pasos:
+    *
+    *
+    * @return view
+    ***************************************************/
+    public function noticia($id){
 
+        $notice = $this->ticketRepository->getModel()->where('id',$id)->get();
+        return view('tickets.complete',compact('notice'));
+    }
     public function store(Request $request)
     {
        
         $this->validate($request, [
             'title' => 'required|max:120',
-            'link'  => 'url',
+            'content'  => 'required',
         ]);
         //obtenemos el campo file definido en el formulario
         $file = $request->file('file');
 $countNotice = $this->ticketRepository->getModel()->count();
 
         //obtenemos el nombre del archivo
+<<<<<<< HEAD
         $nombre = currentUser()->id.'-'.'noticia-'.($countNotice+1).'.'.$file->getClientOriginalExtension();
 
 //echo json_encode($nombre); die;
@@ -72,12 +91,19 @@ $countNotice = $this->ticketRepository->getModel()->count();
             $request->get('title'),
             $request->get('contentNotice'),
             $nombre
+=======
+        $name = currentUser()->id.'-notice.'.$file->getClientOriginalExtension();
+        $ticket = $this->ticketRepository->openNew(
+            currentUser(),
+            $request->get('title'),
+            $request->get('content'),
+            $name
+>>>>>>> ba63f50d4b95bb44939eadbd225b0db77041791b
 
         );
-        
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
-        \Storage::disk('local')->put($nombre,  \File::get($file));
+        \Storage::disk('local')->put($name,  \File::get($file));
 
         return Redirect::route('tickets.details', $ticket->id);
     }
