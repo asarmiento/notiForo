@@ -63,10 +63,6 @@
                     </div>
 
 
-                    <!--div class="forom-groupom-group">
-                        <label for="link">Enlace:</label>
-                        <input class="form-control" name="link" type="text" id="link" value="{{ old('link') }}">
-                    </div-->
                     <button type="submit" class="btn btn-primary">Enviar comentario</button>
                 </form>
 
@@ -91,7 +87,7 @@
                                 {!! Form::close() !!}
                             @endcan
                         @endif
-						 <img src="<?php echo "/storage/images/".$ticket->name_image ?>" height="242" width="242">
+
 						
                         <p class="date-t">
                             <span class="glyphicon glyphicon-time"></span>

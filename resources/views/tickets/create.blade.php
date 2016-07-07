@@ -5,9 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
-                <h2>Nueva Información</h2>
-=======
-                <h2>Nueva Noticia</h2>
+                 <h2>Nueva Noticia</h2>
 
                 @include('partials/errors')
                 {!! Form::open(['route' => 'tickets.store', 'method' => 'POST','accept-charset'=>"UTF-8",
@@ -22,19 +20,6 @@
                             ])
                         !!}
 
-                        {!! Form::label('contentNotice', 'Contenido') !!}
-                        {!! Form::textarea('contentNotice', null, [
-						'size' => '90x8', 'class' => 'form-control', 
-						'placeholder' => 'Describción de la información detalla'])					
-                        !!}
-						<p>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Adjuntar imagen</label>
-                            <div class="col-md-6">
-                                <input type="file" class="form-control" name="file" >
-                            </div>
-                        </div>
-
                         {!! Form::label('content', 'Contenido') !!}
                         {!! Form::textarea('content', null, [
                                 'rows'  => 15,
@@ -42,7 +27,7 @@
                                 'placeholder' => 'Comparte un tutorial o recurso colocando una URL (opcional)'
                             ])
                         !!}
-                        {!! Form::label('title', 'Imagen Noticia') !!}
+                        {!! Form::label('file', 'Imagen Noticia') !!}
                         {!! Form::file('file', null, [
                                 'class' => 'form-control',
                                 'placeholder' => 'Comparte un tutorial o recurso colocando una URL (opcional)'
