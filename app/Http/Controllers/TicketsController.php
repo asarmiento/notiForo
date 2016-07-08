@@ -68,7 +68,8 @@ class TicketsController extends Controller {
     public function noticia($id){
 
         $notice = $this->ticketRepository->getModel()->where('id',$id)->get();
-        return view('tickets.complete',compact('notice'));
+        $ticket = $this->ticketRepository->findOrFail($id);
+        return view('tickets.complete',compact('notice','ticket'));
     }
     public function store(Request $request)
     {
