@@ -7,7 +7,10 @@
 @extends('layout')
 
 @section('content')
-    <div class="col-md-7 col-lg-7 row text-center">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row">
         <h1>{!! $notice->title !!}</h1>
         <img src="/storage/images/{!!  $notice->name_image !!}" width="300" height="200">
         <p >
@@ -40,6 +43,8 @@
             </div>
         @endforeach
 
+    </div>
+    </div>
     </div>
 
 @endsection
