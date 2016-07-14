@@ -51,7 +51,7 @@
                     @endif
                 @endif
 
-                <h3>Nueva información</h3>
+                <h3>Nueva Comentario</h3>
 
                 @include('partials/errors')
 
