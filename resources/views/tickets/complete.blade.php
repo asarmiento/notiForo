@@ -8,10 +8,10 @@
 
 @section('content')
     <div class="col-md-7 col-lg-7 row text-center">
-        <h1>{!! $notice[0]->title !!}</h1>
-        <img src="/storage/images/{!!  $notice[0]->name_image !!}" width="300" height="200">
+        <h1>{!! $notice->title !!}</h1>
+        <img src="/storage/images/{!!  $notice->name_image !!}" width="300" height="200">
         <p >
-            {!! $notice[0]->content !!}
+            {!! $notice->content !!}
 
         </p>
 
