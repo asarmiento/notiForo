@@ -12,8 +12,8 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
         <h1>{!! $notice->title !!}</h1>
-        <img src="/storage/images/{!!  $notice->name_image !!}" width="300" height="200">
-        <p >
+        <img class="Left" src="/storage/images/{!!  $notice->name_image !!}" width="300" height="200">
+        <p class="right" >
             {!! $notice->content !!}
 
         </p>
