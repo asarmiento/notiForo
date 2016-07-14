@@ -27,13 +27,7 @@
                             {{ $comment->link }}
                         </a>
                     </p>
-                    @can('selectResource', $notice)
-                        {!! Form::open(['route' => ['tickets.select', $notice, $comment]]) !!}
-                        <p>
-                            <button type="submit" class="btn btn-primary">Seleccionar tutorial</button>
-                        </p>
-                        {!! Form::close() !!}
-                    @endcan
+
                 @endif
 
 
