@@ -7,45 +7,39 @@
 @extends('layout')
 
 @section('content')
-    <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
-        <h1>{!! $notice->title !!}</h1>
-        <div class="text-center text-justify img-responsive ">
-        <img class="Left" src="/storage/images/{!!  $notice->name_image !!}" width="300" height="200">
-        <p class="right" >
-            {!! $notice->content !!}
+                <h1>{!! $notice->title !!}</h1>
+                <div class="text-center text-justify img-responsive ">
+                    <img class="Left" src="/storage/images/{!!  $notice->name_image !!}" width="300" height="200">
+                    <p class="right" >{!! $notice->content !!}</p>
+                </div>
+                <h3>Nuevos Comentarios ({{ count($notice->comments) }})</h3>
+                @foreach ($notice->comments as $comment)
+                    <div class="well well-sm">
+                        <p><strong>{{ $comment->user->name }}</strong></p>
+                        <p>{{ $comment->comment }}</p>
+                        @if ($comment->link)
+                            <p>
+                                <a href="{{ $comment->link }}" rel="nofollow" target="_blank">
+                                    {{ $comment->link }}
+                                </a>
+                            </p>
 
-        </p>
-        </div>
-        <h3>Nuevos Comentarios ({{ count($notice->comments) }})</h3>
-
-        @foreach ($notice->comments as $comment)
-            <div class="well well-sm">
-                <p><strong>{{ $comment->user->name }}</strong></p>
-                <p>{{ $comment->comment }}</p>
-                @if ($comment->link)
-                    <p>
-                        <a href="{{ $comment->link }}" rel="nofollow" target="_blank">
-                            {{ $comment->link }}
-                        </a>
-                    </p>
-
-                @endif
+                        @endif
 
 
-                <p class="date-t">
-                    <span class="glyphicon glyphicon-time"></span>
-                    {{ $comment->created_at->format('d/m/Y h:ia') }}
-                </p>
-
-
+                        <p class="date-t">
+                            <span class="glyphicon glyphicon-time"></span>
+                            {{ $comment->created_at->format('d/m/Y h:ia') }}
+                        </p>
+                    </div>
+                @endforeach
             </div>
-        @endforeach
-
+        </div>
     </div>
-    </div>
-    </div>
+</div>
 
 @endsection
