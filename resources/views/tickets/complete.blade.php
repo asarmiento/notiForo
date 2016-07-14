@@ -15,7 +15,7 @@
 
         </p>
 
-        <h3>Nuevos Comentarios ({{ count($ticket->comments) }})</h3>
+        <h3>Nuevos Comentarios ({{ count($notice->comments) }})</h3>
 
         @foreach ($notice->comments as $comment)
             <div class="well well-sm">
