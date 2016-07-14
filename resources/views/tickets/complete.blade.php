@@ -17,7 +17,7 @@
 
         <h3>Nuevos Comentarios ({{ count($ticket->comments) }})</h3>
 
-        @foreach ($ticket->comments as $comment)
+        @foreach ($notice->comments as $comment)
             <div class="well well-sm">
                 <p><strong>{{ $comment->user->name }}</strong></p>
                 <p>{{ $comment->comment }}</p>
@@ -27,8 +27,8 @@
                             {{ $comment->link }}
                         </a>
                     </p>
-                    @can('selectResource', $ticket)
-                        {!! Form::open(['route' => ['tickets.select', $ticket, $comment]]) !!}
+                    @can('selectResource', $notice)
+                        {!! Form::open(['route' => ['tickets.select', $notice, $comment]]) !!}
                         <p>
                             <button type="submit" class="btn btn-primary">Seleccionar tutorial</button>
                         </p>
