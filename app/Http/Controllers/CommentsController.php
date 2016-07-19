@@ -30,15 +30,26 @@ class CommentsController extends Controller {
             'link' => 'url'
         ]);
 
+
+        //obtenemos el campo file definido en el formulario
+        $file = $request->file('file');
+        $countNotice = $this->ticketRepository->getModel()->count();
+
+        //obtenemos el nombre del archivo
+
+        $name = currentUser()->id.'-comment'.($countNotice+1).'.'.$file->getClientOriginalExtension();
+
         $ticket = $this->ticketRepository->findOrFail($id);
 
         $this->commentRepository->create(
             $ticket,
             currentUser(),
             $request->get('comment'),
-            $request->get('link')
+            $request->get('link'),
+            $name
         );
-
+        //indicamos que queremos guardar un nuevo archivo en el disco local
+        \Storage::disk('local')->put($name,  \File::get($file));
         session()->flash('success', 'Tu comentario fue guardado exitosamente');
         return redirect()->back();
     }

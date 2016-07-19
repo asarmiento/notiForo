@@ -13,10 +13,11 @@ class CommentRepository extends BaseRepository {
         return new TicketComment();
     }
 
-    public function create(Ticket $ticket, User $user, $comment, $link = '')
+    public function create(Ticket $ticket, User $user, $comment, $link = '',Name $name)
     {
-        $comment = new TicketComment(compact('comment', 'link'));
+        $comment = new TicketComment(compact('comment', 'link','name_image'));
         $comment->user_id = $user->id;
+        $comment->name_image = $name;
         $ticket->comments()->save($comment);
     }
 
