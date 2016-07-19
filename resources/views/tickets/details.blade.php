@@ -16,40 +16,16 @@
                     </p>
                 @endif
 
-                @if (Session::has('success'))
-                    <div class="alert alert-success">
-                        {{ Session::get('success') }}
-                    </div>
-                @endif
+
 
                 <p class="date-t">
                     <span class="glyphicon glyphicon-time"></span> {{ $ticket->created_at->format('d/m/y h:ia') }}
                     - {{ $ticket->author->name }}
                 </p>
-                <h4 class="label label-info news">
-                    {{ count($ticket->voters) }} votos
-                </h4>
 
-                <p class="vote-users">
-                    @foreach($ticket->voters as $user)
-                        <span class="label label-info">{{ $user->name }}</span>
-                    @endforeach
-                </p>
-                @if (Auth::check())
-                    @if ( ! currentUser()->hasVoted($ticket))
-                        {!! Form::open(['route' => ['votes.submit', $ticket->id], 'method' => 'POST']) !!}
-                        <button type="submit" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-thumbs-up"></span> Votar
-                        </button>
-                        {!! Form::close() !!}
-                    @else
-                        {!! Form::open(['route' => ['votes.destroy', $ticket->id], 'method' => 'DELETE']) !!}
-                        <button type="submit" class="btn btn-primary" >
-                            <span class="glyphicon glyphicon-thumbs-down"></span> Quitar voto
-                        </button>
-                        {!! Form::close() !!}
-                    @endif
-                @endif
+
+
+
 
                 <h3>Nueva Comentario</h3>
 
