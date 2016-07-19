@@ -40,6 +40,8 @@
                 <h3>Nuevos Comentarios ({{ count($notice->comments) }})</h3>
                 @foreach ($notice->comments as $comment)
                     <div class="well well-sm">
+                        <img class="Left" src="/storage/images/{!!  $comment->name_image !!}" width="300" height="200">
+
                         <p><strong>{{ $comment->user->name }}</strong></p>
                         <p>{{ $comment->comment }}</p>
                         @if ($comment->link)
