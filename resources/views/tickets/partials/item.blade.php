@@ -7,13 +7,11 @@
 
             @if (Auth::guest())
                 <a href="#">
-                    <span class="votes-count">{{ $ticket->num_votes }} votos</span>
-                    -<span class="comments-count">{{ $ticket->num_comments }} comentarios</span>.
+                    <span class="comments-count">{{ $ticket->num_comments }} comentarios</span>.
                 </a>
         @else
                 <a href="{{ route('tickets.details', $ticket) }}">
-                    <span class="votes-count">{{ $ticket->num_votes }} votos</span>
-                    -<span class="comments-count">{{ $ticket->num_comments }} comentarios</span>.
+                    <span class="comments-count">{{ $ticket->num_comments }} comentarios</span>.
                 </a>
             @endif
     </p>
