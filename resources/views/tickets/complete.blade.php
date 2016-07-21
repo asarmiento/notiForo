@@ -11,10 +11,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
-                <h1>{!! $notice->title !!}</h1>
+                <h1>{!! $notice[0]->title !!}</h1>
                 <div class="text-center text-justify img-responsive ">
-                    <img class="Left" src="/storage/images/{!!  $notice->name_image !!}" width="300" height="200">
-                    <p class="right" >{!! $notice->content !!}</p>
+                    <img class="Left" src="/storage/images/{!!  $notice[0]->name_image !!}" width="300" height="200">
+                    <p class="right" >{!! $notice[0]->content !!}</p>
                 </div>
                 @if(Auth::user())
                     <h3>Nueva Comentario</h3>
