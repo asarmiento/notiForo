@@ -80,7 +80,7 @@ class TicketsController extends Controller {
         ]);
         //obtenemos el campo file definido en el formulario
         $file = $request->file('file');
-$countNotice = $this->ticketRepository->getModel()->count();
+        $countNotice = $this->ticketRepository->getModel()->count();
 
         //obtenemos el nombre del archivo
 
