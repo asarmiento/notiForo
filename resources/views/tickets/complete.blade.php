@@ -38,10 +38,10 @@
                     </form>
                 @endif
                 <h3>Nuevos Comentarios ({{ count($ticket->comments) }})</h3>
-                @foreach ($ticket->comments as $comment)
+                @foreach ($ticket->comments()->orderBy('id','DESC')->get() as $comment)
                     <div class="well well-sm">
                         @if($comment->name_image)
-                        <img class="Left" src="/storage/images/{!!  $comment->name_image !!}" width="300" height="200">
+                        <img class="Left" src="/storage/images/{!!  $comment->name_image !!}" width="200" height="100">
                         @endif
                         <p><strong>{{ $comment->user->name }}</strong></p>
                         <p>{{ $comment->comment }}</p>
