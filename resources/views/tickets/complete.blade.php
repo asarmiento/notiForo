@@ -11,10 +11,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
-                <h1>{!! $notice->title !!}</h1>
+                <h1>{!! $ticket->title !!}</h1>
                 <div class="text-center text-justify img-responsive ">
-                    <img class="Left" src="/storage/images/{!!  $notice->name_image !!}" width="300" height="200">
-                    <p class="right" >{!! $notice->content !!}</p>
+                    <img class="Left" src="/storage/images/{!!  $ticket->name_image !!}" width="300" height="200">
+                    <p class="right" >{!! $ticket->content !!}</p>
                 </div>
                 @if(Auth::user())
                     <h3>Nueva Comentario</h3>
@@ -37,8 +37,8 @@
                         <button type="submit" class="btn btn-primary">Enviar comentario</button>
                     </form>
                 @endif
-                <h3>Nuevos Comentarios ({{ count($notice->comments) }})</h3>
-                @foreach ($notice->comments as $comment)
+                <h3>Nuevos Comentarios ({{ count($ticket->comments) }})</h3>
+                @foreach ($ticket->comments as $comment)
                     <div class="well well-sm">
                         @if($comment->name_image)
                         <img class="Left" src="/storage/images/{!!  $comment->name_image !!}" width="300" height="200">
