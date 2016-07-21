@@ -7,42 +7,62 @@
 @extends('layout')
 
 @section('content')
-    <div class="col-md-7 col-lg-7">
-        <h1>{!! $notice[0]->title !!}</h1>
-        <p>
-            <img src="/storage/images/{!!  $notice[0]->name_image !!}" width="300" height="200">
-            {!! $notice[0]->content !!}
-            {!! public_path() !!}/public/storage/images/{!!  $notice[0]->name_image !!}
-        </p>
-    </div>
-    <h3>Nuevos sucesos ({{ count($ticket->comments) }})</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+                <h1>{!! $notice->title !!}</h1>
+                <div class="text-center text-justify img-responsive ">
+                    <img class="Left" src="/storage/images/{!!  $notice->name_image !!}" width="300" height="200">
+                    <p class="right" >{!! $notice->content !!}</p>
+                </div>
+                @if(Auth::user())
+                    <h3>Nueva Comentario</h3>
 
-    @foreach ($ticket->comments as $comment)
-        <div class="well well-sm">
-            <p><strong>{{ $comment->user->name }}</strong></p>
-            <p>{{ $comment->comment }}</p>
-            @if ($comment->link)
-                <p>
-                    <a href="{{ $comment->link }}" rel="nofollow" target="_blank">
-                        {{ $comment->link }}
-                    </a>
-                </p>
-                @can('selectResource', $ticket)
-                    {!! Form::open(['route' => ['tickets.select', $ticket, $comment]]) !!}
-                    <p>
-                        <button type="submit" class="btn btn-primary">Seleccionar tutorial</button>
-                    </p>
-                    {!! Form::close() !!}
-                @endcan
-            @endif
+                    @include('partials/errors')
+
+                    <form action="{{ route('comments.submit', $ticket->id) }}" enctype="multipart/form-data" method="POST" accept-charset="UTF-8">
+                        {!! csrf_field() !!}
+                        <div class="form-group">
+                            <label for="comment">Nuevo suceso:</label>
+                            <textarea rows="4" class="form-control" name="comment" cols="50" id="comment">{{ old('comment') }}</textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Imagen:</label>
+                            <input class="form-control" name="file" type="file" id="file">
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                    </form>
+                @endif
+                <h3>Nuevos Comentarios ({{ count($notice->comments) }})</h3>
+                @foreach ($notice->comments as $comment)
+                    <div class="well well-sm">
+                        @if($comment->name_image)
+                        <img class="Left" src="/storage/images/{!!  $comment->name_image !!}" width="300" height="200">
+                        @endif
+                        <p><strong>{{ $comment->user->name }}</strong></p>
+                        <p>{{ $comment->comment }}</p>
+                        @if ($comment->link)
+                            <p>
+                                <a href="{{ $comment->link }}" rel="nofollow" target="_blank">
+                                    {{ $comment->link }}
+                                </a>
+                            </p>
+
+                        @endif
 
 
-            <p class="date-t">
-                <span class="glyphicon glyphicon-time"></span>
-                {{ $comment->created_at->format('d/m/Y h:ia') }}
-            </p>
-
-
+                        <p class="date-t">
+                            <span class="glyphicon glyphicon-time"></span>
+                            {{ $comment->created_at->format('d/m/Y h:ia') }}
+                        </p>
+                    </div>
+                @endforeach
+            </div>
         </div>
-    @endforeach
+    </div>
+
 @endsection

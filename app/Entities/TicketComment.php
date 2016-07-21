@@ -5,7 +5,7 @@ namespace TeachMe\Entities;
 class TicketComment extends Entity
 {
 
-    protected $fillable = ['comment', 'link'];
+    protected $fillable = ['comment', 'link', 'name_image'];
 
     public function ticket()
     {

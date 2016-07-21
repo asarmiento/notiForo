@@ -2,30 +2,16 @@
     <h4 class="list-title">
         {{ $ticket->title }}
         <a class="btn btn-default" href="{{route('tickets.noticia',$ticket->id)}}">Leer Mas..</a>
-        @include('tickets/partials/status', compact('ticket'))
     </h4>
     <p>
-        @if (Auth::check())
-            <a href="#"
-               {!! Html::classes(['btn btn-primary btn-vote', 'hidden' => currentUser()->hasVoted($ticket)]) !!}
-               title="Votar por este tutorial">
-                <span class="glyphicon glyphicon-thumbs-up"></span> Votar
-            </a>
-            <a href="#"
-               {!! Html::classes(['btn btn-hight btn-unvote', 'hidden' => !currentUser()->hasVoted($ticket)]) !!}
-               title="Quitar el voto a este tutorial">
-                <span class="glyphicon glyphicon-thumbs-down"></span> Quitar voto
-            </a>
-        @endif
+
             @if (Auth::guest())
                 <a href="#">
-                    <span class="votes-count">{{ $ticket->num_votes }} votos</span>
-                    -<span class="comments-count">{{ $ticket->num_comments }} comentarios</span>.
+                    <span class="comments-count">{{ $ticket->num_comments }} comentarios</span>.
                 </a>
         @else
                 <a href="{{ route('tickets.details', $ticket) }}">
-                    <span class="votes-count">{{ $ticket->num_votes }} votos</span>
-                    -<span class="comments-count">{{ $ticket->num_comments }} comentarios</span>.
+                    <span class="comments-count">{{ $ticket->num_comments }} comentarios</span>.
                 </a>
             @endif
     </p>
